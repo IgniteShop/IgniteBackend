@@ -1,2 +1,2 @@
 # IgniteBackend
-Node.js backend for Ignite shop
+Flask AI backend for Ignite shop
