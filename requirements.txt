@@ -7,6 +7,6 @@ matplotlib==3.3.3
 numpy==1.19.3
 requests==2.25.0
 six==1.15.0
-https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl
+torch==1.7.0
 torchaudio==0.7.0
 torchvision==0.8.1
