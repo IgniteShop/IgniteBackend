@@ -1,8 +1,6 @@
 from typing import List
-from flask import Blueprint, send_file
-import requests
+from flask import Blueprint
 import random
-import os
 
 image_name = Blueprint('name', __name__)
 

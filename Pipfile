@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+future = "==0.18.2"
+idna = "==2.10"
+itsdangerous = "==1.1.0"
+matplotlib = "==3.3.3"
+numpy = "==1.19.3"
+requests = "==2.25.0"
+six = "==1.15.0"
+torch = "==1.7.0"
+torchaudio = "==0.7.0"
+torchvision = "==0.8.1"
+Flask = "==1.1.2"
+Flask-RESTful = "==0.3.8"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
