@@ -1,12 +1,15 @@
 from models.model import Generator
 from flask import Blueprint, send_file
+from flask_cors import cross_origin
 import torchvision.utils as vutils
 import requests
 import torch
 
+
 generate = Blueprint('generate', __name__)
 
 @generate.route("/generate_one", methods=["GET"])
+@cross_origin()
 def generateImage():
     model = Generator()
     model.load_state_dict(torch.load("./models/gen.pt", map_location=torch.device('cpu')))
@@ -30,4 +33,6 @@ def generateImage():
     with open(f"./images/generate_one.jpg", "wb") as f:
         f.write(res.content)
 
-    return send_file(open(f"./images/generate_one.jpg", 'rb'), mimetype='image/gif')
+    encoded_image = open(f"./images/generate_one.jpg", "rb")
+
+    return send_file(encoded_image, mimetype='image/gif')
