@@ -1,9 +1,11 @@
-from models.model import Generator
 from flask import Blueprint, send_file
 from flask_cors import cross_origin
 import torchvision.utils as vutils
 import requests
 import torch
+# import torch.nn as nn
+# import torch.optim as optim
+import numpy as np
 
 
 generate = Blueprint('generate', __name__)
@@ -11,11 +13,17 @@ generate = Blueprint('generate', __name__)
 @generate.route("/generate_one", methods=["GET"])
 @cross_origin()
 def generateImage():
-    model = Generator()
-    model.load_state_dict(torch.load("./models/gen.pt", map_location=torch.device('cpu')))
-    model.eval()
+    manualSeed = np.random.randint(1, 10000) # use if you want new results
+    torch.manual_seed(manualSeed)
+    print("Manual seed: ", manualSeed)
 
     device = torch.device("cpu")
+
+    model = torch.load("./models/gen.pt", map_location=device)
+
+    model.zero_grad()
+    model.eval()
+
     noise = torch.randn(1, 100, 1, 1, device=device)
     fake = model(noise)
 

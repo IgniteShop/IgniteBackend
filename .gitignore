@@ -212,3 +212,6 @@ dmypy.json
 *.code-workspace
 
 /node_modules
+
+# ignore temporary folder for images
+images/*

@@ -3,7 +3,6 @@ from flask import Blueprint
 from flask_cors import cross_origin
 import requests
 import random
-import os
 
 image_name = Blueprint('name', __name__)
 
