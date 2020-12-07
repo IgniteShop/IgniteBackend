@@ -1,4 +1,5 @@
 from flask import Blueprint, send_file
+from flask_cors import cross_origin
 import torchvision.utils as vutils
 import torch
 import numpy as np
@@ -6,6 +7,7 @@ import numpy as np
 preview = Blueprint('preview', __name__)
 
 @preview.route("/preview", methods=["GET"])
+@cross_origin()
 def generatePreview():
     manualSeed = np.random.randint(1, 10000) # use if you want new results
     torch.manual_seed(manualSeed)
