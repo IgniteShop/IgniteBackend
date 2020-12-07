@@ -38,4 +38,4 @@ def generateImage():
     with open(f"./images/generate_one.jpg", "wb") as f:
         f.write(res.content)
 
-    return send_file(open(f"./images/generate_one.jpg", 'rb'), mimetype='image/gif')
+    return send_file(open(f"./images/generate_one.jpg", 'rb'), mimetype='image/png')
