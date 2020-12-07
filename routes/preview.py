@@ -25,4 +25,4 @@ def generatePreview():
 
     vutils.save_image(fake[0], f"./images/preview.jpg")
 
-    return send_file(open(f"./images/preview.jpg", 'rb'), mimetype='image/png')
+    return send_file(open(f"./images/preview.jpg", 'rb'), mimetype='image/png', cache_timeout=-1)
