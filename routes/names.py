@@ -1,10 +1,13 @@
 from typing import List
 from flask import Blueprint
+from flask_cors import cross_origin
+import requests
 import random
 
 image_name = Blueprint('name', __name__)
 
 @image_name.route("/name", methods=["GET"])
+@cross_origin()
 def generateName():
     adjectives = open("names\\adjectives.txt", 'r')
     adjectiveList = adjectives.readlines()
@@ -17,9 +20,7 @@ def generateName():
 
     name = removeWhitespace([adjective, *nouns])
 
-    response = {'name': name}
-
-    return response
+    return name
 
 def removeWhitespace(strings: List[str]) -> str:
     name = ""
