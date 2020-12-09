@@ -2,6 +2,8 @@ from flask import Flask
 from routes.generate import generate
 from routes.names import image_name
 from routes.preview import preview
+from routes.shirt import shirt
+from routes.mug import mug
 import torch.nn as nn
 
 app = Flask(__name__)
@@ -56,6 +58,8 @@ class Generator(nn.Module):
 app.register_blueprint(generate)
 app.register_blueprint(preview)
 app.register_blueprint(image_name)
+app.register_blueprint(shirt)
+app.register_blueprint(mug)
 
 if __name__ == "__main__":
     app.run()
