@@ -40,4 +40,4 @@ def generateImage():
 
     encoded_image = open(f"./images/generate_one.jpg", "rb")
 
-    return send_file(encoded_image, mimetype='image/png')
+    return send_file(encoded_image, mimetype='image/png', cache_timeout=-1)
